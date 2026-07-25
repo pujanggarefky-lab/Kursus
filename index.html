@@ -1,166 +1,386 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tempat Belajar Saya</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Materi Pemrograman Berbasis Web</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f2f4f8;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
 }
 
 header{
-    background:#2563eb;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
     color:white;
-    text-align:center;
     padding:30px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
 header h1{
-    margin:0;
+    font-size:30px;
+}
+
+header p{
+    margin-top:8px;
+    opacity:.9;
 }
 
 .container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
+    width:min(1200px,95%);
+    margin:25px auto;
 }
 
-input{
-    width:100%;
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ccc;
+.video-section{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
     margin-bottom:25px;
-    font-size:16px;
+}
+
+.video-title{
+    padding:15px 20px;
+    background:#eef4ff;
+    font-weight:bold;
+    color:#1e3a8a;
+    border-bottom:1px solid #ddd;
+}
+
+.video-wrapper{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+}
+
+.video-wrapper iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:none;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:20px;
 }
 
 .card{
     background:white;
-    border-radius:10px;
+    border-radius:15px;
     overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
 }
 
 .card h2{
-    padding:15px;
-    margin:0;
-    color:#2563eb;
-}
-
-.card p{
-    padding:0 15px;
-}
-
-iframe{
-    width:100%;
-    height:220px;
-    border:none;
-}
-
-.button{
-    display:inline-block;
-    margin:15px;
     background:#2563eb;
     color:white;
-    text-decoration:none;
-    padding:10px 18px;
-    border-radius:6px;
+    padding:15px;
+    font-size:20px;
 }
 
-.button:hover{
-    background:#1d4ed8;
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#eef4ff;
+    color:#1e3a8a;
+    padding:10px;
+}
+
+td{
+    border-top:1px solid #eee;
+    padding:10px;
+}
+
+td:first-child{
+    width:40px;
+    text-align:center;
+    color:#666;
+}
+
+button.lesson{
+    width:100%;
+    text-align:left;
+    padding:10px 12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#f7f9fc;
+    transition:.25s;
+    font-size:14px;
+}
+
+button.lesson:hover{
+    background:#dbeafe;
+}
+
+button.lesson.active{
+    background:#2563eb;
+    color:white;
 }
 
 footer{
-    margin-top:40px;
-    background:#222;
-    color:white;
+    margin-top:35px;
     text-align:center;
     padding:20px;
+    color:#777;
+}
+
+@media(max-width:700px){
+
+header h1{
+    font-size:24px;
+}
+
+.grid{
+    grid-template-columns:1fr;
+}
+
 }
 </style>
-
 </head>
+
 <body>
 
 <header>
-<h1>Bokep indo Mantap</h1>
-<p>Kumpulan Video Bokep</p>
+<h1>📚 Materi Pemrograman Berbasis Web</h1>
+<p>Klik salah satu materi untuk memutar video di bawah tanpa berpindah halaman.</p>
 </header>
 
 <div class="container">
 
-<input type="text" placeholder="Cari materi...">
+<div class="video-section">
 
-<div class="grid">
-
-<div class="card">
-<h2>HTML Dasar</h2>
-<p>Belajar HTML dari awal.</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZRXVxhV6gP8?si=aUm-a2KPK_Vy2IfN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-<a class="button"
-href="https://youtu.be/ZRXVxhV6gP8?si=aUm-a2KPK_Vy2IfN"
-target="_blank">
-Tonton di YouTube
-</a>
-
+<div class="video-title" id="videoTitle">
+Pilih salah satu materi...
 </div>
 
-<div class="card">
-<h2>CSS Dasar</h2>
-<p>Belajar membuat website menjadi menarik.</p>
-
+<div class="video-wrapper">
 <iframe
-src="https://youtu.be/ZRXVxhV6gP8?si=aUm-a2KPK_Vy2IfN"
+id="youtubePlayer"
+src="https://www.youtube.com/embed/dQw4w9WgXcQ?start=60&end=150"
 allowfullscreen>
 </iframe>
-
-<a class="button"
-href="https://youtu.be/ZRXVxhV6gP8?si=aUm-a2KPK_Vy2IfN"
-target="_blank">
-Tonton di YouTube
-</a>
-
-</div>
-
-<div class="card">
-<h2>JavaScript Dasar</h2>
-<p>Belajar JavaScript untuk website interaktif.</p>
-
-<iframe
-src="https://www.youtube.com/embed/VIDEO_ID3"
-allowfullscreen>
-</iframe>
-
-<a class="button"
-href="https://www.youtube.com/watch?v=VIDEO_ID3"
-target="_blank">
-Tonton di YouTube
-</a>
-
 </div>
 
 </div>
+
+<div class="grid" id="content"></div>
 
 </div>
 
 <footer>
-© 2026 Tempat Belajar Saya
+Website Materi Pemrograman • HTML + CSS + JavaScript (Single File)
 </footer>
+
+<script>
+
+/* ============================================================
+   DATABASE / MODEL DATA
+   ============================================================
+
+   Silakan ganti bagian "youtube" pada setiap sub-materi
+   dengan link YouTube embed milik Anda.
+
+   Contoh format:
+
+   https://www.youtube.com/embed/VIDEO_ID?start=60&end=150
+
+   start = detik mulai
+   end   = detik selesai
+
+============================================================ */
+
+const materiDatabase = [
+
+{
+    kategori:"VARIABEL",
+    materi:[
+        {
+            judul:"MENGGUNAKAN INTERAKTIF CHELL",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=60&end=150"
+        },
+        {
+            judul:"PENGERTIAN VARIABEL",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=151&end=260"
+        },
+        {
+            judul:"ASSIGMENT NILAI",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=261&end=360"
+        },
+        {
+            judul:"PEMANGGILAN PERTAMA",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=361&end=470"
+        },
+        {
+            judul:"PENAMAAN",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=471&end=560"
+        },
+        {
+            judul:"PEMANGGILAN KEDUA",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=561&end=640"
+        },
+        {
+            judul:"ASSIGMENT INDIRECT",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=641&end=760"
+        }
+    ]
+},
+
+{
+    kategori:"TIPE DATA",
+    materi:[
+        {
+            judul:"TIPE DATA INTEGER",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=60&end=150"
+        },
+        {
+            judul:"TIPE DATA FLOAT",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=151&end=240"
+        },
+        {
+            judul:"TIPE DATA STRING",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=241&end=330"
+        },
+        {
+            judul:"TIPE DATA BOOLEAN",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=331&end=420"
+        },
+        {
+            judul:"TIPE DATA KOMPLEKS (KHUSUS)",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=421&end=520"
+        },
+        {
+            judul:"MENGIMPORT DATA DARI BAHASA C",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=521&end=620"
+        }
+    ]
+},
+
+{
+    kategori:"CASTING TIPE DATA",
+    materi:[
+        {
+            judul:"PENGERTIAN CASTING",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=60&end=150"
+        },
+        {
+            judul:"CASTING DARI INTEGER",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=151&end=250"
+        },
+        {
+            judul:"CASTING DARI FLOAT",
+            youtube:"https://www.youtube.com/embed/dQw4w9WgXcQ?start=251&end=350"
+        }
+    ]
+}
+
+];
+
+/* ============================================================
+   RENDER
+============================================================ */
+
+const content = document.getElementById("content");
+
+materiDatabase.forEach(kategori=>{
+
+    const card=document.createElement("div");
+    card.className="card";
+
+    let html=`
+        <h2>${kategori.kategori}</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Sub Materi</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    kategori.materi.forEach((m,index)=>{
+
+        html+=`
+        <tr>
+            <td>${index+1}</td>
+            <td>
+                <button
+                    class="lesson"
+                    data-video="${m.youtube}"
+                    data-title="${kategori.kategori} - ${m.judul}">
+                    ▶ ${m.judul}
+                </button>
+            </td>
+        </tr>
+        `;
+
+    });
+
+    html+=`
+            </tbody>
+        </table>
+    `;
+
+    card.innerHTML=html;
+
+    content.appendChild(card);
+
+});
+
+/* ============================================================
+   PLAYER
+============================================================ */
+
+const iframe=document.getElementById("youtubePlayer");
+const title=document.getElementById("videoTitle");
+
+document.addEventListener("click",function(e){
+
+    if(e.target.classList.contains("lesson")){
+
+        document
+        .querySelectorAll(".lesson")
+        .forEach(btn=>btn.classList.remove("active"));
+
+        e.target.classList.add("active");
+
+        iframe.src=e.target.dataset.video;
+
+        title.textContent=e.target.dataset.title;
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
