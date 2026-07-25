@@ -167,6 +167,37 @@ header h1{
 <p>Selamat Belajar, Terima kasih telah mengunjungi website saya.</p>
 </header>
 
+<div style="margin: 20px 0;">
+    <input type="text" id="inputCari" onkeyup="fiturCari()" placeholder="Cari sub materi...">
+</div>
+
+<div id="daftarMateri">
+    <div class="item-materi">▶ MENGGUNAKAN INTERAKTIF CHELL</div>
+    <div class="item-materi">▶ PENGERTIAN VARIABEL</div>
+    <div class="item-materi">▶ ASSIGNMENT NILAI</div>
+</div>
+
+<script>
+function fiturCari() {
+    // Mengambil nilai input dan mengubahnya menjadi huruf kecil
+    let input = document.getElementById('inputCari').value.toLowerCase();
+    // Mengambil semua elemen materi
+    let items = document.getElementsByClassName('item-materi');
+
+    // Melakukan perulangan untuk menyembunyikan/menampilkan materi
+    for (let i = 0; i < items.length; i++) {
+        let teksMateri = items[i].textContent || items[i].innerText;
+        
+        if (teksMateri.toLowerCase().indexOf(input) > -1) {
+            items[i].style.display = ""; // Tampilkan jika cocok
+        } else {
+            items[i].style.display = "none"; // Sembunyikan jika tidak cocok
+        }
+    }
+}
+</script>
+
+
 <div class="container">
 
 <div class="video-section">
