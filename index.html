@@ -167,36 +167,51 @@ header h1{
 <p>Selamat Belajar, Terima kasih telah mengunjungi website saya.</p>
 </header>
 
-<div style="margin: 20px 0;">
+<div class="search-container">
+    <span class="search-icon">🔍</span>
     <input type="text" id="inputCari" onkeyup="fiturCari()" placeholder="Cari sub materi...">
 </div>
 
-<div id="daftarMateri">
-    <div class="item-materi">▶ MENGGUNAKAN INTERAKTIF CHELL</div>
-    <div class="item-materi">▶ PENGERTIAN VARIABEL</div>
-    <div class="item-materi">▶ ASSIGNMENT NILAI</div>
-</div>
-
-<script>
-function fiturCari() {
-    // Mengambil nilai input dan mengubahnya menjadi huruf kecil
-    let input = document.getElementById('inputCari').value.toLowerCase();
-    // Mengambil semua elemen materi
-    let items = document.getElementsByClassName('item-materi');
-
-    // Melakukan perulangan untuk menyembunyikan/menampilkan materi
-    for (let i = 0; i < items.length; i++) {
-        let teksMateri = items[i].textContent || items[i].innerText;
-        
-        if (teksMateri.toLowerCase().indexOf(input) > -1) {
-            items[i].style.display = ""; // Tampilkan jika cocok
-        } else {
-            items[i].style.display = "none"; // Sembunyikan jika tidak cocok
-        }
-    }
+<style>
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 25px; /* Membuat sudut kotak melengkung halus */
+    padding: 8px 16px;
+    margin: 20px auto;
+    max-width: 90%; /* Menyesuaikan lebar di layar HP */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
-</script>
 
+.search-container:focus-within {
+    border-color: #2563eb; /* Berubah biru saat diklik (sesuai tema web) */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    background-color: #ffffff;
+}
+
+.search-icon {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #64748b;
+}
+
+#inputCari {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 15px;
+    color: #1e293b;
+    font-family: inherit;
+}
+
+#inputCari::placeholder {
+    color: #94a3b8;
+}
+</style>
 
 <div class="container">
 
