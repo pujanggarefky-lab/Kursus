@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tempat Belajar Saya</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f2f4f8;
+}
+
+header{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+header h1{
+    margin:0;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    margin-bottom:25px;
+    font-size:16px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.card h2{
+    padding:15px;
+    margin:0;
+    color:#2563eb;
+}
+
+.card p{
+    padding:0 15px;
+}
+
+iframe{
+    width:100%;
+    height:220px;
+    border:none;
+}
+
+.button{
+    display:inline-block;
+    margin:15px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:6px;
+}
+
+.button:hover{
+    background:#1d4ed8;
+}
+
+footer{
+    margin-top:40px;
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>📚 Tempat Belajar Saya</h1>
+<p>Kumpulan Video Pembelajaran YouTube</p>
+</header>
+
+<div class="container">
+
+<input type="text" placeholder="Cari materi...">
+
+<div class="grid">
+
+<div class="card">
+<h2>HTML Dasar</h2>
+<p>Belajar HTML dari awal.</p>
+
+<iframe
+src="https://www.youtube.com/embed/VIDEO_ID1"
+allowfullscreen>
+</iframe>
+
+<a class="button"
+href="https://www.youtube.com/watch?v=VIDEO_ID1"
+target="_blank">
+Tonton di YouTube
+</a>
+
+</div>
+
+<div class="card">
+<h2>CSS Dasar</h2>
+<p>Belajar membuat website menjadi menarik.</p>
+
+<iframe
+src="https://www.youtube.com/embed/VIDEO_ID2"
+allowfullscreen>
+</iframe>
+
+<a class="button"
+href="https://www.youtube.com/watch?v=VIDEO_ID2"
+target="_blank">
+Tonton di YouTube
+</a>
+
+</div>
+
+<div class="card">
+<h2>JavaScript Dasar</h2>
+<p>Belajar JavaScript untuk website interaktif.</p>
+
+<iframe
+src="https://www.youtube.com/embed/VIDEO_ID3"
+allowfullscreen>
+</iframe>
+
+<a class="button"
+href="https://www.youtube.com/watch?v=VIDEO_ID3"
+target="_blank">
+Tonton di YouTube
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Tempat Belajar Saya
+</footer>
+
+</body>
+</html>
